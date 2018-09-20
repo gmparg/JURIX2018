@@ -1,0 +1,39 @@
+toast.arg-tech.org
+
+Premises: (add according to example)
+hasLicense;
+publish;
+
+Assumptions:
+default;
+
+Preferences:
+default < hasLicense;
+hasLicense < violation;
+
+Rules:
+[r1] default => obl_not_use;
+[r2] hasLicense => ~obl_not_use;
+[r3] default => obl_not_publish;
+[r4] publish, obl_not_publish => obl_remove;
+[r5] hasLicense, hasApproval => ~obl_not_publish;
+[r6] default => obl_not_comment;
+[r7] ~obl_not_publish => ~obl_not_comment;
+[r8] hasLicense, isCommissioned => obl_publish;
+[r9] hasLicense, isCommissioned => ~obl_not_publish;
+[r10] violation => obl_not_use;
+[r11] violation => obl_not_publish;
+
+Rule Preferences:
+[r1] < [r2]; 
+[r3] < [r5];
+[r6] < [r7];
+[r3] < [r8];
+[r3] < [r9];
+[r2] < [r10];
+[r5] < [r11];
+[r8] < [r11];
+[r9] < [r11];
+
+Contrariness:
+obl_publish-obl_not_publish;

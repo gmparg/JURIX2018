@@ -1,0 +1,110 @@
+toast.arg-tech.org
+
+Premises: (add according to example)
+
+Assumptions:
+
+report_on_ICSRs_to_FDA;
+
+Preferences: 
+
+Rules : 
+[r1] Manufacturer_report_electronically_To_FDA=> MPD_report_electronically_To_FDA;
+[r2] Packer_electronically_report_To_FDA=> MPD_report_electronically_To_FDA;
+[r3] Distributor_report_electronically_To_FDA=> MPD_report_electronically_To_FDA;
+[r4] MPD_report_electronically_To_FDA=> MPD_report_electronically_to_FDA_adverse_drug_experience;
+[r5] MPD_waivers_be_granted_temporary_from_FDA=> -MPD_report_electronically_to_FDA_adverse_drug_experience;
+[r6] MPD_report_15_day_Postmarketing_Alert_reports=> -MPD_report_electronically_to_FDA_adverse_drug_experience;
+[r7] MPD_report_15_day_Postmarketing_Alert_reports_followup=> -MPD_report_electronically_to_FDA_adverse_drug_experience;
+[r8] MPD_report_15_day_Postmarketing_Alert_reports=> MPD_report_electronically_to_FDA_adverse_drug_experience_in_15_days;
+[r9] MPD_report_15_day_Postmarketing_study_Alert_reports=> -MPD_report_electronically_to_FDA_adverse_drug_experience_in_15_days;
+[r10] MPD_report_15_day_Postmarketing_Alert_reports=> MPD_report_electronically_to_FDA_ADE_in_15_days;
+[r11] MPD_report_15_day_Postmarketing_Alert_reports_followup=> MPD_report_electronically_to_FDA_ADE_in_15_days;
+[r12] Packer_report_To_Manufacturer=> PD_report_To_Manufacturer;
+[r13] Distributor_report_To_Manufacturer=> PD_report_To_Manufacturer;
+[r14] PD_report_To_Manufacturer=> PD_report_To_Manufacturer_adverse_drug_experience_in_15_days;
+[r15] PD_report_To_Manufacturer=> PD_report_contains_adverse_drug_experience;
+[r16] PD_report_To_Manufacturer=> PD_report_contains_received_date_by_PD;
+[r17] PD_report_To_Manufacturer=> PD_report_contains_submitted_date_to_manufacturer;
+[r18] PD_report_To_Manufacturer=> PD_report_contains_manufacturer_name;
+[r19] PD_report_To_Manufacturer=> PD_report_contains_manufacturer_address;
+[r20] MPD_report_electronically_To_FDA=> -MPD_resubmit_electronically_to_FDA_adverse_drug_experience_forwarded_by_FDA;
+[r21] MPD_report_electronically_To_FDA=> -MPD_report_follow_up_to_FDA_adverse_drug_experience;
+[r22] report_on_ICSRs_to_FDA => report_Patient_information_to_FDA;
+[r23] report_on_ICSRs_to_FDA => report_Patient_age_to_FDA;
+[r24] report_on_ICSRs_to_FDA => report_Patient_date_of_birth_to_FDA;
+[r25] report_on_ICSRs_to_FDA => report_Patient_gender_to_FDA;
+[r26] report_on_ICSRs_to_FDA => report_Patient_weight_to_FDA;
+[r27] report_on_ICSRs_to_FDA => report_Adverse_drug_experience_to_FDA;
+[r28] report_on_ICSRs_to_FDA => report_outcome_attributed_to_adverse_drug_experience_to_FDA;
+[r29] report_on_ICSRs_to_FDA =>report_Date_of_adverse_drug_experience_to_FDA;
+[r30] report_on_ICSRs_to_FDA => report_Date_of_ICSR_submission_to_FDA;
+[r31] report_on_ICSRs_to_FDA => report_description_of_adverse_drug_experience_to_FDA;
+[r32] report_on_ICSRs_to_FDA => report_concise_medical_narrative_of_adverse_drug_experience_to_FDA;
+[r33] report_on_ICSRs_to_FDA => report_Adverse_drug_experience_term_to_FDA;
+[r34] report_on_ICSRs_to_FDA => report_description_of_relevant_test_of_Adverse_drug_experience_to_FDA;
+[r35] report_on_ICSRs_to_FDA => report_date_of_relevant_test_of_Adverse_drug_experience_to_FDA;
+[r36] report_on_ICSRs_to_FDA => report_laboratory_data_of_relevant_test_of_Adverse_drug_experience_to_FDA;
+[r37] report_on_ICSRs_to_FDA => report_other_relevant_patient_history_of_Adverse_drug_experience_to_FDA;
+[r38] report_on_ICSRs_to_FDA => report_preexisting_medical_conditions_of_Adverse_drug_experience_to_FDA;
+[r39] [FAERSr40_1	: report_on_ICSRs_to_FDA => report_Suspect_medical_product_information_to_FDA;
+[r40] report_on_ICSRs_to_FDA => report_Suspect_medical_product_name_to_FDA;
+[r41] report_on_ICSRs_to_FDA => report_suspect_medical_product__Dose_frequency_to_FDA;
+[r42] report_on_ICSRs_to_FDA => report_Suspect_medical_product_route_of_administration_used_to_FDA;
+[r43] report_on_ICSRs_to_FDA => report_suspect_medical_product_therapy_date_to_FDA;
+[r44] report_on_ICSRs_to_FDA => report_Suspect_medical_product_diagnosis_for_use_indication_to_FDA;
+[r45] report_on_ICSRs_to_FDA, ICSRs_contain_Whether_product_is_combination_product => report_Suspect_medical_product_whether_product_is_combination_product_to_FDA;
+[r46] product_comprised_regulated_drug,  product_comprised_device => product_is_combination_product;
+[r47] product_comprised_regulated_biologic, product_comprised_device=> product_is_combination_product;
+[r48] product_comprised_regulated_drug,  product_comprised_biologic=> product_is_combination_product;
+[r49] product_comprised_regulated_drug,  product_comprised_device, product_comprised_biologic=> product_is_combination_product;
+[r50] report_on_ICSRs_to_FDA => report__to_FDA_Suspect_medical_product_whether_prescription_product;
+[r51] report_on_ICSRs_to_FDA => report_to_FDA_suspect_medical_product_whether_nonprescription_product;
+[r52] report_on_ICSRs_to_FDA => report_to_FDA_whether_adverse_drug_experience_abated_after_drug_use_stopped;
+[r53] report_on_ICSRs_to_FDA => report_to_FDA_whether_adverse_drug_experience_abated_after_drug_reduced;
+[r54] report_on_ICSRs_to_FDA => report_to_FDA_whether_adverse_drug_experience_reappeared_after_reintroduction_of_drug;
+[r55] [FAERSr56_1:	report_on_ICSRs_to_FDA => report_Suspect_medical_product_to_FDA;
+[r56] report_on_ICSRs_to_FDA => report_Suspect_medical_Lot_number_to_FDA;
+[r57] report_on_ICSRs_to_FDA => report_Suspect_medical_product_Expiration_date_to_FDA;
+[r58] report_on_ICSRs_to_FDA => report_Suspect_medical_product_NDC_number_to_FDA;
+[r59] report_on_ICSRs_to_FDA => report_Suspect_concomitant_medical_products_to_FDA;
+[r60] report_on_ICSRs_to_FDA => report_Suspect_medical_product_concomitant_therapy_dates_to_FDA;
+[r61] report_on_ICSRs_to_FDA => report_initial_reporter_information_to_FDA;
+[r62] report_on_ICSRs_to_FDA => report_initial_reporter_name_to_FDA;
+[r63] report_on_ICSRs_to_FDA => report_initial_reporter_address_to_FDA;
+[r64] report_on_ICSRs_to_FDA => report_initial_reporter_telephone_number_to_FDA;
+[r65] report_on_ICSRs_to_FDA => report_Whether_the_initial_reporter_is_a_health_care_professional_to_FDA;
+[r66] report_on_ICSRs_to_FDA => report_initial_reporter_is_a_health_care_professional_to_FDA;
+[r67] ICSRs_contain_Manufacturer_information => ICSRs_contain_MPD_information;
+[r68] ICSRs_contain_packer_information => ICSRs_contain_MPD_information;
+[r69] ICSRs_contain_distributor_information => ICSRs_contain_MPD_information;
+[r70] ICSRs_contain_Manufacturer_name => ICSRs_contain_MPD_name;
+[r71] ICSRs_contain_packer_name => ICSRs_contain_MPD_name;
+[r72] ICSRs_contain_distributor_name => ICSRs_contain_MPD_name;
+[r73] ICSRs_contain_Manufacturer_contact_office_address => ICSRs_contain_MPD_contact_office_address;
+[r74] ICSRs_contain_packer_contact_office_address => ICSRs_contain_MPD_contact_office_address;
+[r75] ICSRs_contain_distributor_contact_office_address => ICSRs_contain_MPD_contact_office_address;
+[r76] ICSRs_contain_Manufacturer_Telephone_number => ICSRs_contain_MPD_Telephone_number;
+[r77] ICSRs_contain_packer_Telephone_number => ICSRs_contain_MPD_Telephone_number;
+[r78] ICSRs_contain_distributor_Telephone_number => ICSRs_contain_MPD_Telephone_number;
+[r79] ICSRs_contain_Manufacturer_Report_received_Date => ICSRs_contain_MPD_Report_received_Date;
+[r80] ICSRs_contain_packer_Report_received_Date => ICSRs_contain_MPD_Report_received_Date;
+[r81] ICSRs_contain_distributor_Report_received_Date => ICSRs_contain_MPD_Report_received_Date;
+[r82] report_on_ICSRs_to_FDA => report_MPD_information_to_FDA;
+[r83] report_on_ICSRs_to_FDA => report_MPD_name_to_FDA;
+[r84] report_on_ICSRs_to_FDA => report_MPD_contact_office_address_to_FDA;
+[r85] report_on_ICSRs_to_FDA => report_MPD_Telephone_number_to_FDA;
+[r86] report_on_ICSRs_to_FDA => report_MPD_Report_source_to_FDA;
+[r87] report_on_ICSRs_to_FDA => report_MPD_Report_received_Date_to_FDA;
+[r88] report_on_ICSRs_to_FDA => report_Whether_15_day_Alert_report_to_FDA;
+[r89] report_on_ICSRs_to_FDA => report_whether_initial_report_to_FDA;
+[r90] report_on_ICSRs_to_FDA => report_Whether_initial_report_to_FDA;
+[r91] report_on_ICSRs_to_FDA => report_Whether_followup_report_to_FDA;
+[r92] report_on_ICSRs_to_FDA => report_Unique_case_identification_number_to_FDA;
+[r93] report_on_ICSRs_to_FDA, report_required_to_be_submitted_electronically_to_FDA=> ICSRs_processed_by_FDA;
+[r94] report_on_ICSRs_to_FDA, report_required_to_be_submitted_electronically_to_FDA=> ICSRs_reviewed_by_FDA;
+[r95] report_on_ICSRs_to_FDA, report_required_to_be_submitted_electronically_to_FDA=> ICSRs_archived_by_FDA;
+
+Rules Preferences: 
+
+Contrariness:

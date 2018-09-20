@@ -1,0 +1,17 @@
+:- obl_publish, obl_not_publish.
+
+art10 {obl_not_use :- 1=1.}
+art11:art10 {-obl_not_use :- hasLicense.} 
+art21 {obl_not_publish :- 1=1. 
+	   obl_remove :- publish, obl_not_publish.}
+art22:art21 {-obl_not_publish :- hasLicense, hasApproval.}
+art31 {obl_not_comment :- 1=1.}
+art32:art31 {-obl_not_comment :- -obl_not_publish.}
+art40:art21 {obl_publish :- hasLicense, isCommissioned.
+            -obl_not_publish :- hasLicense, isCommissioned.} 
+art51:art11 {obl_not_use :- violation.}
+art52:art40,art22 {obl_not_publish :- violation.
+			     -obl_publish :- violation.}
+
+hasLicense.
+publish.

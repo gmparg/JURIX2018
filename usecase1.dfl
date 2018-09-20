@@ -1,0 +1,10 @@
+r1: evidenceA => responsible
+r2: evidenceB => -responsible
+r3: responsible => guilty
+r4:  => -guilty
+r5: -guilty => compensation
+r6:  => -compensation
+>> evidenceA
+>> evidenceB
+r3 > r4
+r5 > r6

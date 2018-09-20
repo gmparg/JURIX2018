@@ -1,0 +1,25 @@
+Art10[O]: => -use(X)
+Art11[P]: hasLicense(X) => use(X) 
+Art21[O]: => -publish(X)
+Art21rep[O]: [O]-publish(X), publish(X) => remove(X)
+Art22[P]: hasLicense(X), hasApproval(X) => publish(X)
+Art31[O]: => -comment(X)
+Art32[P]: [P]publish(X) => comment(X)
+Art40[O]: hasLicense(X), isCommissioned(X) => publish(X)
+Art40p[P]: hasLicense(X), isCommissioned(X) => publish(X)
+Art51[O]: violation(X) => -use(X)
+Art52[O]: violation(X) => -publish(X)
+
+# Superiority relations
+
+Art11 > Art10
+Art22 > Art21
+Art32 > Art31
+Art40 > Art21
+Art51 > Art11
+Art52 > Art40
+Art52 > Art40p
+Art52 > Art22
+
+>> hasLicense(X)
+>> publish(X)

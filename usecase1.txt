@@ -1,0 +1,25 @@
+toast.arg-tech.org
+
+Premises: (add according to example)
+evidenceA;
+evidenceB;
+
+Assumptions:
+default;
+
+Preferences:
+
+Rules:
+[r1] evidenceA => responsible;
+[r2] evidenceB => ~responsible;
+[r3] responsible => guilty;
+[r4]  default=> ~guilty;
+[r5] ~guilty => compensation;
+[r6] default => ~compensation;
+
+Rule Preferences: 
+
+[r4] < [r3];
+[r6] < [r5];
+
+Contrariness:

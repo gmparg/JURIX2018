@@ -1,0 +1,8 @@
+r1{ responsible:-evidenceA.} 
+r2{ -responsible:-evidenceB.}
+r4{-guilty:- 1=1.}
+r3:r4{ quilty:-responsible.}
+r6 {-compensation :- 1=1.}
+r5:r6{ compensation:- -guilty.}
+evidenceA.
+evidenceB.
