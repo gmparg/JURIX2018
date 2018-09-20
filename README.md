@@ -1,7 +1,8 @@
 # JURIX2018
 
-## Encodings for use cases presented in the paper 
+## Encodings for use cases presented in the paper:
 ### Legal Representation and Reasoning in Practice: A Critical Comparison
+
 
 * usecase1.dlv:	          Encoding of Use Case 1 in ASP (works with DLV reasoner)
 * usecase1.asp:           Encoding of Use Case 1 in ASP (works with clingo/DLV2 reasoners)
