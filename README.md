@@ -1,7 +1,10 @@
 # JURIX2018
 
-## Encodings for use cases presented in the paper:
-### Legal Representation and Reasoning in Practice: A Critical Comparison<br/><br/>
+## Legal Representation and Reasoning in Practice: A Critical Comparison
+
+### https://doi.org/10.3233/978-1-61499-935-5-31
+### http://ebooks.iospress.nl/volumearticle/50832
+### Encodings for use cases presented in the paper<br/><br/>
 
 
 * **usecase1.dlv**:	          Encoding of Use Case 1 in ASP (works with DLV reasoner)
